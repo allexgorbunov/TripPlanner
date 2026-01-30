@@ -28,7 +28,7 @@
         <button id="add-btn" class="fab">+</button>
     </div>
 
-    <!-- Modal -->
+    <!-- Trip Modal -->
     <div id="modal" class="modal hidden">
         <div class="modal-content">
             <h2 id="modal-title">Новая поездка</h2>
@@ -51,6 +51,63 @@
                     <button type="submit" class="btn-primary">Сохранить</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Route Modal -->
+    <div id="route-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>🗺️ Маршрут</h2>
+            <div id="route-list" class="list-container"></div>
+            <form id="route-form">
+                <input type="hidden" id="route-trip-id">
+                <div class="input-row">
+                    <input type="text" id="route-place" placeholder="Добавить место" required>
+                    <button type="submit" class="btn-primary">+</button>
+                </div>
+            </form>
+            <button class="btn-secondary full-width" onclick="closeRouteModal()">Готово</button>
+        </div>
+    </div>
+
+    <!-- Checklist Modal -->
+    <div id="checklist-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>✓ Чек-лист</h2>
+            <div class="progress-bar">
+                <div id="checklist-progress-bar"></div>
+            </div>
+            <p id="checklist-progress" class="progress-text">0%</p>
+            <div id="checklist-items" class="list-container"></div>
+            <form id="checklist-form">
+                <input type="hidden" id="checklist-trip-id">
+                <div class="input-row">
+                    <input type="text" id="checklist-text" placeholder="Добавить пункт" required>
+                    <button type="submit" class="btn-primary">+</button>
+                </div>
+            </form>
+            <button class="btn-secondary full-width" onclick="closeChecklistModal()">Готово</button>
+        </div>
+    </div>
+
+    <!-- Currency Modal -->
+    <div id="currency-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>💱 Конвертер</h2>
+            <form id="currency-form">
+                <input type="hidden" id="currency-trip-id">
+                <div class="currency-row">
+                    <input type="number" id="currency-amount" placeholder="Сумма" step="0.01">
+                    <select id="currency-from"></select>
+                </div>
+                <div class="currency-arrow">→</div>
+                <div class="currency-row">
+                    <input type="text" id="currency-result" placeholder="Результат" readonly>
+                    <select id="currency-to"></select>
+                </div>
+                <button type="button" class="btn-primary full-width" onclick="convertCurrency()">Конвертировать</button>
+            </form>
+            <button class="btn-secondary full-width" onclick="closeCurrencyModal()">Готово</button>
         </div>
     </div>
 
