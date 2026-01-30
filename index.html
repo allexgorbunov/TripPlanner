@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#007AFF">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+    <title>Планировщик</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🧭 Планировщик</h1>
+        </header>
+
+        <main id="trip-list">
+            <div id="empty-state" class="hidden">
+                <div class="empty-icon">✈️</div>
+                <p>Нет поездок</p>
+                <p class="hint">Нажми + чтобы добавить</p>
+            </div>
+        </main>
+
+        <button id="add-btn" class="fab">+</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Новая поездка</h2>
+            <form id="trip-form">
+                <input type="text" id="trip-name" placeholder="Название" required>
+                <input type="text" id="trip-destination" placeholder="Место" required>
+                <div class="date-row">
+                    <div class="date-group">
+                        <label>Начало</label>
+                        <input type="date" id="trip-start" required>
+                    </div>
+                    <div class="date-group">
+                        <label>Конец</label>
+                        <input type="date" id="trip-end" required>
+                    </div>
+                </div>
+                <textarea id="trip-notes" placeholder="Заметки" rows="3"></textarea>
+                <div class="form-actions">
+                    <button type="button" id="cancel-btn" class="btn-secondary">Отмена</button>
+                    <button type="submit" class="btn-primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
